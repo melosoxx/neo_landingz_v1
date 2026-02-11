@@ -5,21 +5,20 @@ import { ArrowRight, Play } from "lucide-react"
 
 interface HeroSectionProps {
   isActive: boolean
+  onNavigate?: (index: number) => void
 }
 
-export default function HeroSection({ isActive }: HeroSectionProps) {
+export default function HeroSection({ isActive, onNavigate }: HeroSectionProps) {
   return (
     <section className="relative h-screen w-full snap-start flex flex-col items-center justify-center px-6 md:px-16 text-center">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={isActive ? { opacity: 1, scale: 1 } : {}}
-        transition={{ duration: 0.6 }}
-        className="mb-8"
+      <motion.p
+        className="text-base md:text-lg lg:text-xl font-medium text-purple-400 mb-8"
+        initial={{ opacity: 0, y: 20 }}
+        animate={isActive ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5 }}
       >
-        <span className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
-          ¿Todavía necesitás llamar al diseñador para cada cambio que hacés en tu landing?
-        </span>
-      </motion.div>
+        ¿Todavía necesitás llamar al diseñador para cada cambio que hacés en tu landing?
+      </motion.p>
 
       <motion.h1
         className="font-display text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] tracking-tight max-w-5xl text-balance text-glow"
@@ -27,29 +26,17 @@ export default function HeroSection({ isActive }: HeroSectionProps) {
         animate={isActive ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6, delay: 0.1 }}
       >
-        No necesitás aprender a programar, necesitás aprender a dirigir IAs.
+        Autogestión total de tus proyectos
       </motion.h1>
 
       <motion.p
-        className="text-base md:text-lg lg:text-xl max-w-2xl mt-6 text-muted-foreground leading-relaxed"
+        className="font-display text-lg md:text-xl lg:text-2xl font-medium leading-snug tracking-tight max-w-3xl mt-5 text-muted-foreground"
         initial={{ opacity: 0, y: 30 }}
         animate={isActive ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.5, delay: 0.25 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Utilizá el protocolo definitivo para construir, lanzar y editar páginas de alta conversión sin intermediarios.
+        No necesitás aprender a programar, necesitás aprender a dirigir IAs. Utilizá el protocolo definitivo para construir, lanzar y editar landings de alta conversión sin intermediarios.
       </motion.p>
-
-      <motion.div
-        className="flex flex-wrap justify-center gap-3 mt-8"
-        initial={{ opacity: 0, y: 20 }}
-        animate={isActive ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.5, delay: 0.35 }}
-      >
-        <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-sm text-muted-foreground">
-          <span className="text-green-400">✅</span>
-          <span><span className="font-semibold text-foreground">Autogestión Total:</span> Vos sos el dueño del código y del proceso.</span>
-        </span>
-      </motion.div>
 
       <motion.div
         className="flex flex-col sm:flex-row items-center gap-4 mt-10"
@@ -57,11 +44,17 @@ export default function HeroSection({ isActive }: HeroSectionProps) {
         animate={isActive ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.5, delay: 0.45 }}
       >
-        <button className="group flex items-center gap-2 rounded-lg bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:brightness-110 glow-purple">
+        <button
+          onClick={() => onNavigate?.(4)}
+          className="group flex items-center gap-2 rounded-lg bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:brightness-110 glow-purple"
+        >
           Obtener el Contenedor de Información
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
         </button>
-        <button className="flex items-center gap-2 rounded-lg border border-border bg-transparent px-6 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-secondary">
+        <button
+          onClick={() => onNavigate?.(2)}
+          className="flex items-center gap-2 rounded-lg border border-border bg-transparent px-6 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
+        >
           <Play className="h-4 w-4 text-primary" />
           Ver el flujo de trabajo
         </button>

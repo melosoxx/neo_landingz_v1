@@ -8,15 +8,15 @@ interface ProblemSectionProps {
 }
 
 const oldWay = [
-  { icon: Clock, text: "Semanas esperando al dise\u00f1ador" },
+  { icon: Clock, text: "Semanas esperando al desarrollador" },
   { icon: DollarSign, text: "Costos altisimos por cada cambio" },
-  { icon: Lock, text: "Templates r\u00edgidos sin personalidad" },
+  { icon: Lock, text: "Dependencias por falta de conocimiento" },
 ]
 
 const neoWay = [
   { icon: Zap, text: "Ejecuci\u00f3n instant\u00e1nea con IAs" },
-  { icon: Code, text: "v0 + VS Code + Claude como equipo" },
-  { icon: Shield, text: "Independencia total, para siempre" },
+  { icon: Code, text: "Programación sin tocar código" },
+  { icon: Shield, text: "Independencia total y Autosugestión" },
 ]
 
 export default function ProblemSection({ isActive }: ProblemSectionProps) {
@@ -30,7 +30,7 @@ export default function ProblemSection({ isActive }: ProblemSectionProps) {
       >
         <span className="text-sm font-medium text-primary uppercase tracking-widest">El Problema</span>
         <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold mt-3 text-balance">
-          {"El viejo camino vs. El nuevo camino"}
+          {"Tomás el camino equivocado para trabajar"}
         </h2>
       </motion.div>
 

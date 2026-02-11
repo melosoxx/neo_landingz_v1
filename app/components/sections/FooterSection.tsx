@@ -4,9 +4,10 @@ import { motion } from "framer-motion"
 
 interface FooterSectionProps {
   isActive: boolean
+  onNavigate?: (index: number) => void
 }
 
-export default function FooterSection({ isActive }: FooterSectionProps) {
+export default function FooterSection({ isActive, onNavigate }: FooterSectionProps) {
   return (
     <section className="relative h-screen w-full snap-start flex flex-col items-center justify-center px-6 md:px-16">
       <motion.div
@@ -15,11 +16,14 @@ export default function FooterSection({ isActive }: FooterSectionProps) {
         transition={{ duration: 0.6 }}
         className="text-center max-w-3xl"
       >
+        <p className="text-purple-400 text-lg font-semibold mb-8">
+          No estás comprando información, estás comprando Habilidades.
+        </p>
         <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-balance text-glow">
-          {"Dej\u00e1 de dise\u00f1ar. Empez\u00e1 a deployar."}
+          Materializá tus ideas de manera autónoma
         </h2>
         <p className="text-muted-foreground text-lg mt-6 leading-relaxed">
-          {"El futuro de la creaci\u00f3n web es con IAs. El protocolo te ense\u00f1a a dirigirlas."}
+          No solo obtendrás gran independencia para implementar los cambios que desees con total libertad, sino que aprenderás una habilidad de alto valor muy demandada en múltiples ámbitos.
         </p>
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -27,8 +31,11 @@ export default function FooterSection({ isActive }: FooterSectionProps) {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mt-10"
         >
-          <button className="group flex items-center gap-2 mx-auto rounded-lg bg-primary px-8 py-4 text-sm font-bold text-primary-foreground transition-all hover:brightness-110 glow-purple">
-            {"Obtener el Contenedor de Informaci\u00f3n"}
+          <button
+            onClick={() => onNavigate?.(5)}
+            className="group flex items-center gap-2 mx-auto rounded-lg bg-primary px-8 py-4 text-sm font-bold text-primary-foreground transition-all hover:brightness-110 glow-purple"
+          >
+            Obtener el Contenedor de Información
           </button>
         </motion.div>
       </motion.div>
@@ -41,7 +48,7 @@ export default function FooterSection({ isActive }: FooterSectionProps) {
       >
         <div className="h-px w-16 bg-border" />
         <p className="text-xs text-muted-foreground">
-          {"Neo Landing Protocol \u00a9 2026. Todos los derechos reservados."}
+          Neo Landing Protocol © 2026. Todos los derechos reservados.
         </p>
       </motion.footer>
     </section>

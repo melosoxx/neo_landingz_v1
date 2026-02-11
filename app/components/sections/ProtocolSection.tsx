@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { BrainCircuit } from "lucide-react"
 import { VercelLogo, VSCodeLogo, NetlifyLogo } from "../icons/BrandIcons"
@@ -15,29 +16,39 @@ const steps: { number: string; icon: IconComponent; title: string; description: 
     number: "01",
     icon: BrainCircuit,
     title: "Ideaci\u00f3n",
-    description: "Defin\u00ed la estructura, el copy y el objetivo de conversi\u00f3n de tu landing.",
+    description: "Defin\u00ed la estructura, el material y el objetivo de conversi\u00f3n de tu landing.",
   },
   {
     number: "02",
     icon: VercelLogo,
-    title: "Prototipado en v0",
+    title: "Prototipado",
     description: "Us\u00e1 los prompts maestros para generar un prototipo completo en minutos.",
   },
   {
     number: "03",
     icon: VSCodeLogo,
-    title: "Refinamiento en VS Code",
+    title: "Refinamiento",
     description: "Ajust\u00e1 con Claude cada detalle: animaciones, responsividad, performance.",
   },
   {
     number: "04",
     icon: NetlifyLogo,
-    title: "Deploy en Netlify",
+    title: "Deploy",
     description: "Public\u00e1 tu landing en vivo con dominio custom en menos de 5 minutos.",
   },
 ]
 
 export default function ProtocolSection({ isActive }: ProtocolSectionProps) {
+  const [activeStep, setActiveStep] = useState(0)
+
+  useEffect(() => {
+    if (!isActive) return
+    const interval = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % steps.length)
+    }, 2000)
+    return () => clearInterval(interval)
+  }, [isActive])
+
   return (
     <section className="relative h-screen w-full snap-start flex flex-col items-center justify-center px-4 sm:px-6 md:px-16">
       <motion.div
@@ -48,7 +59,7 @@ export default function ProtocolSection({ isActive }: ProtocolSectionProps) {
       >
         <span className="text-sm font-medium text-primary uppercase tracking-widest">El Protocolo</span>
         <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold mt-3 text-balance">
-          {"4 pasos. Programaci\u00f3n a la velocidad del pensamiento."}
+          {"Programaci\u00f3n a la velocidad del pensamiento."}
         </h2>
       </motion.div>
 
@@ -59,12 +70,16 @@ export default function ProtocolSection({ isActive }: ProtocolSectionProps) {
             initial={{ opacity: 0, y: 40 }}
             animate={isActive ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.15 + i * 0.1 }}
-            className="group relative flex flex-col items-center text-center rounded-xl border border-border bg-card/50 p-3 sm:p-4 lg:p-6 transition-all hover:border-primary/40 hover:bg-primary/5 glow-purple-hover"
+            className={`group relative flex flex-col items-center text-center rounded-xl border p-3 sm:p-4 lg:p-6 transition-all duration-350 ease-in-out hover:border-primary/40 hover:bg-primary/5 glow-purple-hover ${
+              activeStep === i ? "border-primary/40 bg-primary/5 glow-purple-active" : "border-border bg-card/50"
+            }`}
           >
             <span className="absolute -top-3 left-4 text-xs font-mono font-bold text-primary bg-background px-2">
               {step.number}
             </span>
-            <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-lg bg-primary/10 border border-primary/20 mb-2 sm:mb-4 group-hover:bg-primary/20 group-hover:border-primary/40 transition-all">
+            <div className={`flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-lg mb-2 sm:mb-4 group-hover:bg-primary/20 group-hover:border-primary/40 transition-all duration-350 ease-in-out border ${
+              activeStep === i ? "bg-primary/20 border-primary/40" : "bg-primary/10 border-primary/20"
+            }`}>
               <step.icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
             </div>
             <h3 className="font-display text-base sm:text-lg font-bold text-foreground mb-1 sm:mb-2">{step.title}</h3>

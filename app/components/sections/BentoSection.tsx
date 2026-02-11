@@ -10,32 +10,32 @@ interface BentoSectionProps {
 const components = [
   {
     icon: Vault,
-    title: "The Vault: Repositorio de Estructuras.",
-    description: "No empieces de cero nunca m\u00e1s. Acceso a 5 repositorios privados en Next.js + Tailwind, optimizados para velocidad de carga y conversi\u00f3n. Clon\u00e1, inyect\u00e1 tu marca y deploy\u00e1.",
+    title: "Repositorio de Estructuras",
+    description: "No empieces de cero nunca m\u00e1s. Obtendrás acceso a repositorios privados de Next.js + Tailwind, optimizados para velocidad de carga y conversi\u00f3n. Clon\u00e1, inyect\u00e1 tu marca y public\u00e1.",
     value: "$150 USD",
     span: "md:col-span-2",
     accent: true,
   },
   {
     icon: MessageSquareCode,
-    title: "The Master Prompt Library.",
-    description: "Mi biblioteca personal de prompts estructurados para v0 y Claude. Aprend\u00e9 a \u201cdirigir a la m\u00e1quina\u201d para generar secciones enteras, l\u00f3gica de formularios y animaciones complejas en segundos.",
+    title: "Biblioteca de Prompts",
+    description: "Tendrás acceso a mi biblioteca personal de prompts estructurados para v0 y Claude. Aprend\u00e9 a \u201cdirigir a la m\u00e1quina\u201d para generar secciones enteras, l\u00f3gica de formularios y animaciones complejas en segundos.",
     value: "$49 USD",
     span: "md:col-span-1",
     accent: false,
   },
   {
     icon: Video,
-    title: "Neo Landings Campus (Skool).",
-    description: "Acceso a la comunidad privada y base de tutoriales \u201cOver-the-shoulder\u201d. Mir\u00e1 exactamente c\u00f3mo construyo cada landing de principio a fin, sin cortes, mostrando la resoluci\u00f3n de problemas reales en tiempo real.",
-    value: "$97 USD",
+    title: "Neo Landingz Campus (Skool).",
+    description: "Acceso a la comunidad privada y base de tutoriales. Mir\u00e1 exactamente c\u00f3mo construyo cada landing de principio a fin, sin cortes, mostrando la resoluci\u00f3n de problemas reales en tiempo real.",
+    value: "$127 USD",
     span: "md:col-span-1",
     accent: false,
   },
   {
     icon: Layers,
-    title: "Librer\u00eda de Componentes de \u00c9lite.",
-    description: "Selecci\u00f3n curada de componentes de UI Verse listos para integrar en tu c\u00f3digo. Elev\u00e1 la est\u00e9tica de tus p\u00e1ginas al nivel de las mejores startups del mundo sin tocar una sola l\u00ednea de CSS complejo.",
+    title: "Componentes de \u00c9lite.",
+    description: "Selecci\u00f3n premium de componentes Ui Premium listos para integrar en tu c\u00f3digo. Elev\u00e1 la est\u00e9tica de tus p\u00e1ginas al nivel de las mejores startups del mundo sin tocar una sola l\u00ednea de código.",
     value: "$25 USD",
     span: "md:col-span-2",
     accent: true,
@@ -53,7 +53,7 @@ export default function BentoSection({ isActive }: BentoSectionProps) {
       >
         <span className="text-sm font-medium text-primary uppercase tracking-widest">{"Qu\u00e9 incluye"}</span>
         <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold mt-3 text-balance">
-          {"Todo lo que necesit\u00e1s, nada que no."}
+          {"Componentes Fundamentales"}
         </h2>
       </motion.div>
 

@@ -10,7 +10,7 @@ import BentoSection from './sections/BentoSection'
 import PricingSection from './sections/PricingSection'
 import FooterSection from './sections/FooterSection'
 
-const sectionIds = ['hero', 'problem', 'protocol', 'components', 'pricing', 'footer']
+const sectionIds = ['hero', 'problem', 'protocol', 'components', 'footer', 'pricing']
 
 export default function LandingPage() {
   const [activeSection, setActiveSection] = useState(0)
@@ -71,12 +71,12 @@ export default function LandingPage() {
         ref={containerRef} 
         className="h-full overflow-y-auto snap-y snap-mandatory"
       >
-        <HeroSection isActive={activeSection === 0} />
+        <HeroSection isActive={activeSection === 0} onNavigate={handleNavClick} />
         <ProblemSection isActive={activeSection === 1} />
         <ProtocolSection isActive={activeSection === 2} />
         <BentoSection isActive={activeSection === 3} />
-        <PricingSection isActive={activeSection === 4} />
-        <FooterSection isActive={activeSection === 5} />
+        <FooterSection isActive={activeSection === 4} onNavigate={handleNavClick} />
+        <PricingSection isActive={activeSection === 5} />
       </div>
     </Layout>
   )
